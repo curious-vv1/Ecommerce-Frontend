@@ -2,7 +2,7 @@
 export function fetchAllProducts() {
   return new Promise(async (resolve) => {
     //Not hard-code
-    const response = await fetch('http://localhost:8080/products');
+    const response = await fetch('https://ecommercedb-3238.onrender.com/products');
     const data = await response.json();
     resolve({ data });
   }
@@ -14,7 +14,7 @@ export function fetchAllProducts() {
 export function fetchProductById(id) {
   return new Promise(async (resolve) => {
     //Not hard-code
-    const response = await fetch('http://localhost:8080/products/'+id);
+    const response = await fetch('https://ecommercedb-3238.onrender.com/products/'+id);
     const data = await response.json();
     resolve({ data });
   }
@@ -49,7 +49,7 @@ export function fetchProdutsByFilters(filter,sort,pagination) {
 
   return new Promise(async (resolve) => {
     //Not hard-code
-    const response = await fetch('http://localhost:8080/products?'+queryString);
+    const response = await fetch('https://ecommercedb-3238.onrender.com/products?'+queryString);
     const data = await response.json();
     const totalItems= await response.headers.get('X-Total-Count')
     resolve({ data:{products:data,totalItems:totalItems} });
@@ -61,7 +61,7 @@ export function fetchProdutsByFilters(filter,sort,pagination) {
 export function fetchBrands() {
   return new Promise(async (resolve) => {
     //Not hard-code
-    const response = await fetch('http://localhost:8080/brands');
+    const response = await fetch('https://ecommercedb-3238.onrender.com/brands');
     const data = await response.json();
     resolve({ data });
   }
@@ -72,7 +72,7 @@ export function fetchBrands() {
 export function fetchCategory() {
   return new Promise(async (resolve) => {
     //Not hard-code
-    const response = await fetch('http://localhost:8080/category');
+    const response = await fetch('https://ecommercedb-3238.onrender.com/category');
     const data = await response.json();
     resolve({ data });
   }
@@ -84,7 +84,7 @@ export function fetchCategory() {
 
 export function createProduct(product) {
   return new Promise(async (resolve) => {
-    const response = await fetch("http://localhost:8080/products", {
+    const response = await fetch("https://ecommercedb-3238.onrender.com/products", {
       method: "POST",
       body: JSON.stringify(product),
       headers: { "content-type": "application/json" },
@@ -97,7 +97,7 @@ export function createProduct(product) {
 
 export function updateProduct(update) {
   return new Promise(async (resolve) => {
-    const response = await fetch("http://localhost:8080/products/"+update.id, {
+    const response = await fetch("https://ecommercedb-3238.onrender.com/products/"+update.id, {
       method: "PATCH",
       body: JSON.stringify(update),
       headers: { "content-type": "application/json" },
